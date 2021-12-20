@@ -15,6 +15,14 @@ A few things to note:
 - Rest of the coins were implemented to use same endpoint as the bitcoin (making network calls follow the same pattern)
 - Flutter version 2.2.3
 
+## Screenshot
+<div align="center">
+    <img src="/ss/ss1.png" width="300px" height="650" /> 
+    <img src="/ss/ss2.png" width="400px" height="750" /> 
+     <img src="/ss/ss3.png" width="400px" height="750" /> 
+    <img src="/ss/ss4.png" width="400px" height="750" /> 
+</div>
+
 Plugins used:
 
 - Provider for statemanagement
