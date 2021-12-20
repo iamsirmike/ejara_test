@@ -1,5 +1,6 @@
 import 'package:crypto_app/core/view_models/block_provider.dart';
 import 'package:crypto_app/pages/transactions.dart';
+import 'package:crypto_app/pages/widgets/portfolio_card.dart';
 import 'package:crypto_app/utils/colors.dart';
 import 'package:crypto_app/utils/did_build.dart';
 import 'package:flutter/material.dart';
@@ -47,82 +48,7 @@ class _HomeState extends State<Home> with DidBuild {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      padding: EdgeInsets.all(40),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text('🤞🏾'),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'holding portfolio',
-                                style: _themeData.textTheme.caption!.copyWith(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Spacer(),
-                              Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "\$10,864.52",
-                                    style: _themeData.textTheme.caption!.copyWith(
-                                      color: Colors.white,
-                                      fontSize: 24,
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Icon(
-                                        Icons.arrow_drop_up,
-                                        color: Colors.green,
-                                      ),
-                                      Text(
-                                        "\$2,864 - 26%",
-                                        style: _themeData.textTheme.caption!.copyWith(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              SizedBox(
-                                width: 40,
-                              ),
-                              Icon(
-                                Icons.trending_up,
-                                size: 30,
-                                color: Colors.white,
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                    PortfolioCard(),
                     SizedBox(
                       height: 20,
                     ),
@@ -144,7 +70,7 @@ class _HomeState extends State<Home> with DidBuild {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Transactions(hash: blockProvider.latestBlock!.hash!)));
+                                    Transactions(hash: blockProvider.latestBlock?.hash!)));
                       },
                       leading: CircleAvatar(
                         radius: 40,
@@ -194,7 +120,10 @@ class _HomeState extends State<Home> with DidBuild {
                       contentPadding: EdgeInsets.zero,
                       onTap: () {
                         Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => Transactions(hash: blockProvider.latestBlock!.hash!)));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Transactions(hash: blockProvider.latestBlock?.hash!)));
                       },
                       leading: CircleAvatar(
                         radius: 40,
@@ -220,7 +149,10 @@ class _HomeState extends State<Home> with DidBuild {
                       contentPadding: EdgeInsets.zero,
                       onTap: () {
                         Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => Transactions(hash: blockProvider.latestBlock!.hash!)));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Transactions(hash: blockProvider.latestBlock?.hash!)));
                       },
                       leading: CircleAvatar(
                         radius: 40,
