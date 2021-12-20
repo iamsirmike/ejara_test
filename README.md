@@ -11,7 +11,7 @@ A few things to note:
 - Login experience is simulated (use email: mike@gmail.com and password: 12345)
 - Network calls are made to get the latest block for bitcoin and it's transactions
 - Tezos blocks had no transactions coming in so I showed empty state instead.
-- Rest of the coins as implemented to use same endpoint as the bitcoin (making network calls follow the same pattern)
+- Rest of the coins were implemented to use same endpoint as the bitcoin (making network calls follow the same pattern)
 - Flutter version 2.2.3
 
 Plugins used:
