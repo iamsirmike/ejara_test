@@ -5,7 +5,7 @@ import 'package:crypto_app/core/services/locator.dart';
 import 'package:flutter/material.dart';
 
 class BlockProvider extends ChangeNotifier {
-  BlockService _blocksService = locator<BlockService>();
+  BlockServiceImpl _blocksServiceImpl = locator<BlockServiceImpl>();
 
   String? _errorMessage;
   String? get erroMessage => _errorMessage;
@@ -18,7 +18,10 @@ class BlockProvider extends ChangeNotifier {
 
   Future<void> geLatestBlock() async {
     try {
-      _latestBlock = await _blocksService.getLatestBlockData();
+      final _data = await _blocksServiceImpl.getLatestBlockData();
+      //exit early when data is null
+      if (_data == null) return;
+      _latestBlock = _data;
       notifyListeners();
     } catch (e) {
       _errorMessage = e.toString();
@@ -28,8 +31,10 @@ class BlockProvider extends ChangeNotifier {
 
   Future<void> getTransactions(String hash) async {
     try {
-      final _data = await _blocksService.getBlockDetailsData(hash);
-      if (_data != null) _transactions = _data.tx!;
+      final _data = await _blocksServiceImpl.getBlockDetailsData(hash);
+      //exit early when data is null
+      if (_data == null) return;
+      _transactions = _data.tx!;
       notifyListeners();
     } catch (e) {
       _errorMessage = e.toString();
