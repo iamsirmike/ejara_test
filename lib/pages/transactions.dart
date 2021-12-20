@@ -68,8 +68,8 @@ class _TransactionsState extends State<Transactions> with DidBuild {
                   itemBuilder: (_, index) {
                     final transaction = _list[index];
                     return ListTile(
-                      title: Text("${transaction.size}"),
-                      subtitle: Text("${transaction.fee}"),
+                      title: Text("Transaction ${index + 1}"),
+                      subtitle: Text("Fee: ${transaction.fee}"),
                       trailing: Text('${transaction.voutSz} BTC'),
                     );
                   },
