@@ -4,9 +4,15 @@ import 'package:crypto_app/core/services/locator.dart';
 import 'package:crypto_app/utils/endpoints.dart';
 import 'package:crypto_app/utils/network_client.dart';
 
-class BlockService {
+abstract class BlockService {
+  Future<BlockModel?> getLatestBlockData();
+  Future<BlockDetailsModel?> getBlockDetailsData(String hash);
+}
+
+class BlockServiceImpl implements BlockService {
   CustomHttpClient httpService = locator<CustomHttpClient>();
 
+  @override
   Future<BlockModel?> getLatestBlockData() async {
     final response = await httpService.get(getLatestBlock);
     if (httpService.isSuccessful(response)) {
@@ -16,6 +22,7 @@ class BlockService {
     return null;
   }
 
+  @override
   Future<BlockDetailsModel?> getBlockDetailsData(String hash) async {
     final response = await httpService.get('$getBlockTransaction/$hash');
     if (httpService.isSuccessful(response)) {
