@@ -18,9 +18,9 @@ A few things to note:
 ## Screenshot
 <div align="center">
     <img src="/ss/ss1.png" width="300px" height="650" /> 
-    <img src="/ss/ss2.png" width="400px" height="750" /> 
-     <img src="/ss/ss3.png" width="400px" height="750" /> 
-    <img src="/ss/ss4.png" width="400px" height="750" /> 
+    <img src="/ss/ss2.png" width="300px" height="650" /> 
+     <img src="/ss/ss3.png" width="300px" height="650" /> 
+    <img src="/ss/ss4.png" width="300px" height="650" /> 
 </div>
 
 Plugins used:
