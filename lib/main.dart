@@ -1,4 +1,5 @@
 import 'package:crypto_app/core/view_models/block_provider.dart';
+import 'package:crypto_app/core/view_models/transactons_provider.dart';
 import 'package:crypto_app/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,9 +20,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<BlockProvider>(
           create: (context) => BlockProvider(),
         ),
+        ChangeNotifierProvider<TransactionsProvider>(
+          create: (context) => TransactionsProvider(),
+        ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Crypto UI',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -30,5 +34,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

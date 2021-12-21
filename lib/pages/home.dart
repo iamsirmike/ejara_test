@@ -22,7 +22,7 @@ class _HomeState extends State<Home> with DidBuild {
 
   @override
   Widget build(BuildContext context) {
-    blockProvider = context.read<BlockProvider>();
+    blockProvider = context.watch<BlockProvider>();
 
     final _themeData = Theme.of(context);
 
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> with DidBuild {
               child: RefreshIndicator(
                 //add pull to refresh
                 onRefresh: () {
-                  return blockProvider.geLatestBlock();
+                  return blockProvider.geLatestBlock(referesh: true);
                 },
                 child: ListView(
                   children: [
@@ -70,7 +70,7 @@ class _HomeState extends State<Home> with DidBuild {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Transactions(hash: blockProvider.latestBlock?.hash!)));
+                                    Transactions(hash: blockProvider.latestBlock!.hash!)));
                       },
                       leading: CircleAvatar(
                         radius: 40,
@@ -94,7 +94,11 @@ class _HomeState extends State<Home> with DidBuild {
                       contentPadding: EdgeInsets.zero,
                       onTap: () {
                         Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => Transactions()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Transactions(
+                                      hash: "",
+                                    )));
                       },
                       leading: CircleAvatar(
                         radius: 40,
@@ -123,7 +127,7 @@ class _HomeState extends State<Home> with DidBuild {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Transactions(hash: blockProvider.latestBlock?.hash!)));
+                                    Transactions(hash: blockProvider.latestBlock!.hash!)));
                       },
                       leading: CircleAvatar(
                         radius: 40,
@@ -152,7 +156,7 @@ class _HomeState extends State<Home> with DidBuild {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Transactions(hash: blockProvider.latestBlock?.hash!)));
+                                    Transactions(hash: blockProvider.latestBlock!.hash!)));
                       },
                       leading: CircleAvatar(
                         radius: 40,
